@@ -1,0 +1,37 @@
+model: 'm'
+scale: 4
+rgb_range: 255
+colors: 3
+num_blocks: 8
+num_heads: 8
+num_kernels: 16
+dim: 64
+optim: 'adam'
+fp: 32
+# loss: 'SmoothL1Loss'
+loss: 'L1Loss'
+pretrain: "/folder/model.pt"
+
+
+## parameters for model training
+patch_size: 256
+batch_size: 128
+data_repeat: 40
+data_augment: 1
+
+epochs: 1000
+lr: 0.0002
+decays: [500,800,900,950]
+gamma: 0.5
+log_every: 100
+test_every: 1
+log_path: "./experiments"
+log_name:
+
+## hardware specification
+gpu_ids: [0,1]
+
+## data specification
+data_path: '/your/test/datasets/'
+eval_sets: 'Set5'
+#eval_sets: ['Set5', 'Set14', 'B100', 'Urban100', 'Manga109']
